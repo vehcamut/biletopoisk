@@ -1,34 +1,49 @@
+$primaryColor: #FF5500;
+$disabledColor: #FFA375;
+$hoverColor: #E94E00;
+
 .button {
+  cursor: pointer;
   border: none;
   padding: 10px 16px;
   border-radius: 8px;
   &_empty {
     margin: 0;
-    padding: 0;
+    padding: 4px;
     width: 20px;
     height: 20px;
     border-radius: 4px;
   }
+  &_text {
+    background: none;
+    color: white;
+  }
+  &_text.button_empty {
+    padding: 0;
+  }
   &_primary {
-    background: #FF5500;
+    background: $primaryColor;
     &:disabled {
-      background: #FFA375;
+      background: $disabledColor;
+      cursor: auto;
     }
-    &:hover {
-      background: #E94E00;
+    &:hover:enabled {
+      background: hoverColor;
     }
   }
   &_default {
     background: none;
-    border: 1px solid #FF5500;
-    color:#FF5500;
+    border: 1px solid $primaryColor;
+    color: $primaryColor;
     &:disabled {
-      border-color: #FFA375;
-      color:#FFA375;
+      border-color: $disabledColor;
+      color: $disabledColor;
+      cursor: auto;
     }
-    &:hover {
-      border-color: #E94E00;
-      color:#E94E00;
+    &:hover:enabled {
+      border-color: hoverColor;
+      color: hoverColor;
     }
   }
+
 }

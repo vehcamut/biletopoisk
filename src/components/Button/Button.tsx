@@ -3,13 +3,15 @@ import classes from './Button.module.scss';
 import classnames from 'classnames'
 
 interface ButtonProps extends PropsWithChildren {
-  type?: 'primary' | 'default';
+  disabled?: boolean;
+  type?: 'primary' | 'default' | 'text';
   icon?: React.ReactNode | undefined;
 }
 
-const Button: FunctionComponent<ButtonProps> = ({ type, icon, children }) => {
+const Button: FunctionComponent<ButtonProps> = ({ type, icon, children, disabled }) => {
   return (
-    <button 
+    <button
+      disabled={disabled}
       className={
         classnames(
           classes.button, 
@@ -27,6 +29,7 @@ const Button: FunctionComponent<ButtonProps> = ({ type, icon, children }) => {
 Button.defaultProps = {
   type: 'default',
   icon: undefined,
+  disabled: false,
 }
 
 export default Button;
