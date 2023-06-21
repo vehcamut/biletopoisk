@@ -1,0 +1,13 @@
+.arrow-outlined {
+  // & svg {
+  //   fill: red;
+  // }
+  // background-image: url('./arrow.svg');
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // color: red;
+  background-color: black;
+  -webkit-mask: url('./arrow.svg') no-repeat center;
+  mask: url('./arrow.svg') no-repeat center;
+  mask-size: contain;
+}
