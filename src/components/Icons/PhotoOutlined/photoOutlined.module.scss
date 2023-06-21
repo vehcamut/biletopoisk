@@ -1,0 +1,5 @@
+.photo-outlined {
+  -webkit-mask: url('./photo.svg') no-repeat center;
+  mask: url('./photo.svg') no-repeat center;
+  mask-size: contain;
+}

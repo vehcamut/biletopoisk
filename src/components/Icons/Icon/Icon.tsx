@@ -2,9 +2,9 @@ import React, { FunctionComponent, PropsWithChildren } from 'react'
 import classes from './icon.module.scss';
 import classnames from 'classnames'
 
-interface IconProps extends PropsWithChildren {
+interface IconProps {
   direction?: 'up' | 'down' | 'left' | 'right';
-  className?: string;
+  className: string[];
 }
 
 const Icon: FunctionComponent<IconProps> = ({ direction, className }) => {
@@ -14,7 +14,7 @@ const Icon: FunctionComponent<IconProps> = ({ direction, className }) => {
         classnames(
           classes['icon'],
           classes[`icon_${direction}`],
-          className,
+          ...className,
         )
       }
     />
@@ -23,7 +23,6 @@ const Icon: FunctionComponent<IconProps> = ({ direction, className }) => {
 
 Icon.defaultProps = {
   direction: 'up',
-  className: undefined,
 }
 
 export default Icon;
