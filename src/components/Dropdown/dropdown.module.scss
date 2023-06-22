@@ -1,0 +1,66 @@
+$primaryColor: #FF5500;
+$disabledColor: #FFA375;
+$hoverColor: #E94E90;
+
+
+.dropdown {
+  &-menu {
+    margin-top: 4px;
+    z-index: 2;
+    position: absolute;
+    background-color: white;
+    width: 360px;
+    box-shadow: 0px 10px 22px -4px rgba(27, 31, 35, 0.12);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+  }
+  &-item {
+    padding: 12px;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+}
+.input-label {
+    position: relative;
+}
+.input-wrapper {
+  label {
+    position: relative;
+    color:#1B1F23;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 4px;  
+}
+
+.input {
+  cursor: pointer;
+  color: #1B1F23;
+  width: 360px;
+  background: #FFFFFF;
+  padding: 10px 44px 10px 16px;
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  border: 1px solid #E1E3E6;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  &::placeholder {
+    color: #999FA6;
+  }
+  &:hover, &:active, &:focus {
+    border-color: $primaryColor;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+  &_opened {
+    background-image: url(./arrow-up.svg);
+  }
+  &_closed {
+    background-image: url(./arrow-down.svg);
+  }
+}
