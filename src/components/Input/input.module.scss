@@ -1,0 +1,27 @@
+$primaryColor: #FF5500;
+$disabledColor: #FFA375;
+$hoverColor: #E94E90;
+
+.input-wrapper {
+  label {
+    color:#1B1F23;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input {
+  color: #1B1F23;
+  width: 360px;
+  background: #FFFFFF;
+  padding: 10px 16px;
+  border: 1px solid #E1E3E6;
+  border-radius: 8px;
+  &::placeholder {
+    color: #999FA6;
+  }
+  &:hover, &:active, &:focus {
+    border-color: $primaryColor;
+  }
+}
