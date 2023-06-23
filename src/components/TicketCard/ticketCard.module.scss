@@ -1,0 +1,36 @@
+$primaryColor: #FF5500;
+$disabledColor: #FFA375;
+$hoverColor: #E94E90;
+
+.ticketcard {
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  border-radius: 8px;
+  &-leftbar {
+    background-color: red;
+    border-radius: 8px;
+    position: relative;
+    width: 100px;
+    height: 120px;
+    flex-shrink: 0;
+  }
+  &-image {
+    position: relative;
+    object-fit: cover;
+  }
+  &-rightbar {
+    display: flex;
+    gap: 8px;
+  }
+  &-button {
+    background-color: white;
+  }
+  &-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
