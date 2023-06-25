@@ -17,7 +17,7 @@ const roboto = Roboto(
 const Layout:FunctionComponent<PropsWithChildren>  = ({ children }) =>  {
   return (
     <>
-      <div className="modal-container"/>
+      <div className={classNames("modal-container", roboto.className)} />
       <div className={classNames(classes['container'], roboto.className)}>
         <Header />
         <main className={classes['main']}>
