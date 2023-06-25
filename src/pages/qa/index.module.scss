@@ -1,0 +1,20 @@
+.title {
+  padding: 24px;
+  font-size: 32px;
+  margin-bottom: 24px;
+  line-height: 32px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.list {
+  flex-direction: column;
+  display: flex;
+  gap: 16px;
+}
+
+.collapses {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

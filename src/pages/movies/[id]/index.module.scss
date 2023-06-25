@@ -1,0 +1,20 @@
+.side-bar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 8px;
+  background-color: white;
+  //height: 100%;
+  &-plug {
+    width: 408px;
+    flex-shrink: 0;
+  }
+}
+
+.list {
+  flex-direction: column;
+  display: flex;
+  gap: 16px;
+}
