@@ -1,0 +1,22 @@
+.title {
+  font-size: 32px;
+  margin-bottom: 16px;
+  line-height: 32px;
+  
+}
+
+.body {
+  padding: 24px;
+  background-color: white;
+  border-radius: 8px;
+  
+}
+
+.text {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  p {
+    display: block;
+  }
+}
