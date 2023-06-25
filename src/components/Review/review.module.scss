@@ -1,0 +1,65 @@
+$primaryColor: #FF5500;
+$disabledColor: #FFA375;
+$hoverColor: #E94E90;
+
+
+.avatar {
+  background-color: #E0E0E0;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  text-align: center;
+  &-image {
+    position: relative;
+    object-fit: cover;
+  }
+  &-empty {
+    background-color: #828282;
+    height: 32px;
+    width: 32px;
+    //margin: auto;
+  }
+}
+
+.header {
+  line-height: 32px;
+  display: flex;
+  justify-content: space-between;
+  //margin-bottom: 24px;
+  .name {
+    font-weight: 600;
+  }
+  .rating {
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+.body {
+  //flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text {
+  font-size: 16px;
+}
+
+.card {
+  line-height: 24px;
+  background-color: white;
+  padding: 24px;
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 20px;
+}
