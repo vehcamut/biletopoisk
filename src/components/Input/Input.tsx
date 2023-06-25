@@ -2,14 +2,12 @@ import React, { FunctionComponent, InputHTMLAttributes, PropsWithChildren } from
 import classes from './input.module.scss';
 import classnames from 'classnames'
 
-export interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
-{
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label?: string;
 }
 
 const Input: FunctionComponent<InputProps> = ({ name, label, ...rest }) => {
-  console.log(rest)
   return (
     <div 
       className={classes['input-wrapper']}
