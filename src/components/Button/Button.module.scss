@@ -22,13 +22,14 @@ $hoverColor: #E94E00;
     padding: 0;
   }
   &_primary {
+    color: white;
     background: $primaryColor;
     &:disabled {
       background: $disabledColor;
       cursor: auto;
     }
     &:hover:enabled {
-      background: hoverColor;
+      background: $hoverColor;
     }
   }
   &_default {
@@ -41,8 +42,8 @@ $hoverColor: #E94E00;
       cursor: auto;
     }
     &:hover:enabled {
-      border-color: hoverColor;
-      color: hoverColor;
+      border-color: $hoverColor;
+      color: $hoverColor;
     }
   }
 
