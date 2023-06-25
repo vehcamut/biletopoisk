@@ -1,0 +1,39 @@
+$primaryColor: #FF5500;
+$disabledColor: #FFA375;
+$hoverColor: #E94E00;
+$gray: #333333;
+$white: #ffffff;
+
+.footer {
+  min-height: 86px;
+  font-size: 20px;
+  align-items: center;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $gray;
+  color: $white;
+  &-title {
+    font-size: 32px;
+  }
+  &-right {
+    display: flex;
+    gap: 8px;
+  }
+  .footer-button {
+    padding: 0;
+  }
+  &-button-icon {
+    background-color: $white;
+  }
+  &-counter {
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--orange, #F50);
+  }
+}
