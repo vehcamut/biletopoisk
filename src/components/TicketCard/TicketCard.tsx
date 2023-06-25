@@ -9,18 +9,26 @@ import Image from 'next/image'
 import Button from '../Button/Button';
 import PlusOutlined from '../Icons/PlusOutlined/PlusOutlined';
 import MinusOutlined from '../Icons/MinusOutlined/MinusOutlined';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import PhotoOutlined from '../Icons/PhotoOutlined/PhotoOutlined';
 // import Input, { InputProps } from '../Input/Input';
 
 interface TicketCardProps {
+  id: string;
   imageSrc: string;
   title: string;
   genre: string;
+  //onClick1: (id: string) => void;
   // name: string;
   // label?: string;
   // options: { label: string, value: string }[];
 }
 
-const TicketCard: FunctionComponent<TicketCardProps> = ({ imageSrc, genre, title }) => {
+const TicketCard: FunctionComponent<TicketCardProps> = ({ imageSrc, genre, title, id }) => {
+  const router = useRouter();
+
+
   const [counter, setCounter] = useState(0);
   // const dropdownInput = useRef<HTMLInputElement>(null);
   // const dropdownMenu = useRef<HTMLDivElement>(null);
@@ -42,19 +50,25 @@ const TicketCard: FunctionComponent<TicketCardProps> = ({ imageSrc, genre, title
   return (
     <article className={classes['ticketcard']}>
       <div className={classes['ticketcard-leftbar']}>
-        {/* <Image 
+        <PhotoOutlined className={classes['poster-empty']}/>
+        <Image 
           className={classes['ticketcard-image']}
           src={imageSrc}
-          alt='Потсер фильма'
+          alt='Постер фильма'
           fill={true}
           //style={{objectFit: 'fill'}}
           //width={}
-        /> */}
+        />
+
       </div>
       <div className={classes['ticketcard-body']}>
-        <div className={classes['ticketcard-title']}>
+        <Link 
+          href={`${router.asPath}/${encodeURIComponent(id)}`} 
+          className={classes['ticketcard-title']} 
+          //onClick={() => onClick1(id)}
+        >
           {title}
-        </div>
+        </Link>
         <div className={classes['ticketcard-genre']}>
           {genre}
         </div>
