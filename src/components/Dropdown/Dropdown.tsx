@@ -5,36 +5,51 @@ import { createPortal } from 'react-dom';
 import classes from './dropdown.module.scss';
 import classnames from 'classnames'
 import ArrowOutlined from '../Icons/ArrowOutlined/ArrowOutlined';
+import { IOption } from '@/models/IOption';
 // import Input, { InputProps } from '../Input/Input';
 
 interface DropdownProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label?: string;
-  options: { label: string, value: string }[];
+  options: IOption[];
+  onSelectOption: (option: IOption | undefined)=> void;
 }
 
-const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, ...rest }) => {
+const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, onSelectOption, ...rest }) => {
+//   window.addEventListener('scroll',()=> console.log(window.scrollY)
+// )
+  const ref = useRef<Element | null>(null)
+  const [mounted, setMounted] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    ref.current = document.querySelector<HTMLElement>(".modal-container")
+    const checkIfClickedOutside = (e: MouseEvent) => {
+      console.log(isOpen);
+      const target = e.target as HTMLElement;
+      if (
+        //isOpen && 
+        dropdownMenu.current && 
+        !dropdownMenu.current.contains(target) &&
+        dropdownInput.current && 
+        !dropdownInput.current.contains(target)
+      ) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("click", checkIfClickedOutside);
+    setMounted(true)
+  }, [])
   const dropdownInput = useRef<HTMLInputElement>(null);
   const dropdownMenu = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState(false);
+  
   const [value, setValue] = useState<{label: string, value: string} | undefined>(undefined);
-  const checkIfClickedOutside = (e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (
-      isOpen && 
-      dropdownMenu.current && 
-      !dropdownMenu.current.contains(target) &&
-      dropdownInput.current && 
-      !dropdownInput.current.contains(target)
-    ) {
-      setIsOpen(false);
-    }
-  }
-  document.addEventListener("click", checkIfClickedOutside);
+  
+  //
   return (
     <>
       <div 
         className={classes['input-wrapper']}
+        style={{position:'relative'}}
       >
         {<div className={classes['input-label']}>
           {/* <ArrowOutlined className={classes['input-icon']}/> */}
@@ -57,15 +72,15 @@ const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, ...r
         
       </div>
       {
-        createPortal(
+        (mounted && ref.current) ? createPortal(
           <div
             ref={dropdownMenu}
             className={classes["dropdown-menu"]}
             style={ dropdownInput.current ? {
               top: 
-                dropdownInput.current.offsetTop + 
+                dropdownInput.current.getBoundingClientRect().top + 
                 dropdownInput.current.getBoundingClientRect().height,
-              left: dropdownInput.current.offsetLeft,
+              left: dropdownInput.current.getBoundingClientRect().left,
               display: isOpen ? 'block' : 'none'
             } : {
               display: isOpen ? 'block' : 'none'
@@ -78,6 +93,7 @@ const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, ...r
                 key={undefined}
                 onClick={() => {
                   setValue(undefined);
+                  onSelectOption(undefined);
                   setIsOpen(false);
                 } }
               >
@@ -90,6 +106,7 @@ const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, ...r
                     key={option.value}
                     onClick={() => {
                       setValue(option);
+                      onSelectOption(option);
                       setIsOpen(false);
                     } }
                   >
@@ -98,10 +115,10 @@ const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, ...r
               )}
             </>
           </div>, 
-        document.body)
+        ref.current) : null
       }
     </>
-  )
+  ) 
 }
 
 export default Dropdown;
