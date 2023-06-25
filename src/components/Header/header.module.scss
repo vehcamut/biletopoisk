@@ -1,0 +1,51 @@
+$primaryColor: #FF5500;
+$disabledColor: #FFA375;
+$hoverColor: #E94E00;
+$gray: #333333;
+$white: #ffffff;
+$hover: #d8d8d8;
+
+.header {
+  z-index: 2;
+  &-pug {
+    min-height: 85px;
+    width: 100%;
+  }
+  position: fixed;
+  align-items: center;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $gray;
+  color: $white;
+  &-title {
+    font-size: 32px;
+    font-weight: 700;
+  }
+  &-right {
+    display: flex;
+    gap: 8px;
+  }
+  .header-button {
+    height: 32px;
+    width: 32px;
+  }
+  &-button-icon {
+    height: 32px;
+    width: 32px;
+    background-color: $white;
+    &:hover {
+      background-color: $hover;
+    }
+  }
+  &-counter {
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--orange, #F50);
+  }
+}
