@@ -1,0 +1,95 @@
+$primaryColor: #FF5500;
+$disabledColor: #FFA375;
+$hoverColor: #E94E90;
+$textColor: #1B1F23;
+
+.description-item_vertical {
+  .description-text {
+    font-size: 16px;
+  }
+}
+
+.body {
+  .description:last-child {
+    margin-top: 32px;
+  }
+}
+
+.description {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  font-size: 20px;
+  line-height: 24px;
+
+  &-item {
+    &_vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 16px
+    }
+    //display: flex;
+  }
+  &-label {
+    padding-right: 8px;
+    display: inline-block;
+    font-weight: 600;
+  }
+  &-text {
+    display: inline-block;
+  }
+}
+
+.poster {
+  background-color: red;
+  border-radius: 8px;
+  position: relative;
+  width: 400px;
+  height: 500px;
+  flex-shrink: 0;
+  &-image {
+    position: relative;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
+
+.title {
+  font-size: 32px;
+}
+
+.buttonbar {
+  display: flex;
+  gap: 8px;
+  .counter {
+    font-size: 20px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.button {
+  background-color: white;
+}
+
+.card {
+  color: $textColor;
+  background-color: white;
+  padding: 24px;
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  border-radius: 8px;
+
+  &-body {
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
