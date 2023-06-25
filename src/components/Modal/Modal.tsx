@@ -6,7 +6,7 @@ import classes from './modal.module.scss';
 import classnames from 'classnames'
 import ArrowOutlined from '../Icons/ArrowOutlined/ArrowOutlined';
 import Button from '../Button/Button';
-import CloseOutlined from '../Icons/CloseOutloned/CloseOutlined';
+import CloseOutlined from '../Icons/CloseOutlined/CloseOutlined';
 // import Input, { InputProps } from '../Input/Input';
 
 interface ModalProps extends PropsWithChildren {
