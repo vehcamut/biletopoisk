@@ -1,0 +1,78 @@
+$primaryColor: #FF5500;
+$disabledColor: #FFA375;
+$hoverColor: #E94E00;
+
+.button {
+  cursor: pointer;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  &_empty {
+    margin: 0;
+    padding: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+  }
+  &_text {
+    background: none;
+    color: white;
+  }
+  &_text.button_empty {
+    padding: 0;
+  }
+  &_primary {
+    background: $primaryColor;
+    &:disabled {
+      background: $disabledColor;
+      cursor: auto;
+    }
+    &:hover:enabled {
+      background: $hoverColor;
+    }
+  }
+  &_default {
+    background: none;
+    border: 1px solid $primaryColor;
+    color: $primaryColor;
+    &:disabled {
+      border-color: $disabledColor;
+      color: $disabledColor;
+      cursor: auto;
+    }
+    &:hover:enabled {
+      border-color: $hoverColor;
+      color: $hoverColor;
+    }
+  }
+
+}
+
+.collapse {
+  background-color: white;
+  &-header {
+    line-height: 32px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-icon {
+    background-color: #333333;
+    width: 32px;
+    height: 32px;
+  }
+  &-body {
+    transition: all 2s;
+    padding: 0 24px 24px 24px;
+    &_opened {
+      opacity: 1;
+      transition: all 5s;
+    }
+    &_closed {
+      display: none;
+    }
+  }
+}
