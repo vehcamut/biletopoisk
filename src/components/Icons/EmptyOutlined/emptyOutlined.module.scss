@@ -1,0 +1,5 @@
+.close-outlined {
+  -webkit-mask: url('./empty.svg') no-repeat center;
+  mask: url('./empty.svg') no-repeat center;
+  mask-size: contain;
+}

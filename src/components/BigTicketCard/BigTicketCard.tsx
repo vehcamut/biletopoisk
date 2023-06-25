@@ -26,10 +26,14 @@ export interface Movie {
 }
 interface BigTicketCardProps {
   movie: Movie | undefined;
+  counter: number;
+  onAddOne: () => void;
+  onRemoveOne: () => void;
+  onRemove?: () => void;
 }
 
-const BigTicketCard: FunctionComponent<BigTicketCardProps> = ({ movie }) => {
-  const [counter, setCounter] = useState(0);
+const BigTicketCard: FunctionComponent<BigTicketCardProps> = ({ movie,counter, onAddOne, onRemoveOne, onRemove }) => {
+  //const [counter, setCounter] = useState(0);
   return (
     <article className={classes['card']}>
       {
@@ -49,11 +53,21 @@ const BigTicketCard: FunctionComponent<BigTicketCardProps> = ({ movie }) => {
                 {movie.title}
               </div>
               <div className={classes['buttonbar']}>
-                <Button type='primary' disabled={!counter} icon={<MinusOutlined className={classes['button']}/>}/>
+                <Button 
+                  type='primary'
+                  disabled={!counter}
+                  icon={<MinusOutlined className={classes['button']}/>}
+                  onClick={() => onRemoveOne()}
+                />
                 <div className={classes['counter']}>
-                  {counter}
+                  {counter || 0}
                 </div>
-                <Button type='primary' disabled={counter === 30} icon={<PlusOutlined className={classes['button']}/>}/>
+                <Button
+                  onClick={() => onAddOne()}
+                  type='primary'
+                  disabled={counter === 30}
+                  icon={<PlusOutlined className={classes['button']}/>}
+                />
               </div>
             </div>
             <div className={classes['description']}>

@@ -7,28 +7,33 @@ import ArrowOutlined from '../Icons/ArrowOutlined/ArrowOutlined';
 import Button from '../Button/Button';
 import BasketOutlined from '../Icons/BasketOutlined/BasketOutlined';
 import Link from 'next/link';
+import { useAppSelector } from '@/app/hooks';
 
 interface HeaderProps extends PropsWithChildren {
   //header: string;
 }
 
 const Header: FunctionComponent<HeaderProps> = ({ children }) => {
-  const [counter, setCounter] = useState(1);
+  const basket = useAppSelector((state) => state.basketReducer);
+
   return (
     <>
       <header className={classes['header']}>
-        <div className={classes['header-title']}>
+        <Link 
+          className={classes['header-title']}
+          href={'/movies'}
+        >
           Билетопоиск
-        </div>
+        </Link>
         <div className={classes['header-right']}>
-          {!!counter && 
+          {!!basket.counter && 
             <div className={classes['header-counter']}>
-              {counter}
+              {basket.counter}
             </div>
           }
           <Link 
             className={classes['header-button']}
-            href={'./'}
+            href={'/basket'}
             >
             <BasketOutlined
               className={classes['header-button-icon']}

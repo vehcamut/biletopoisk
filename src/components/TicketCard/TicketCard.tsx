@@ -12,6 +12,7 @@ import MinusOutlined from '../Icons/MinusOutlined/MinusOutlined';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import PhotoOutlined from '../Icons/PhotoOutlined/PhotoOutlined';
+import CloseOutlined from '../Icons/CloseOutlined/CloseOutlined';
 // import Input, { InputProps } from '../Input/Input';
 
 interface TicketCardProps {
@@ -19,34 +20,28 @@ interface TicketCardProps {
   imageSrc: string;
   title: string;
   genre: string;
-  //onClick1: (id: string) => void;
+  counter: number;
+  onAddOne: () => void;
+  onRemoveOne: () => void;
+  onRemove?: () => void;
+   //onClick1: (id: string) => void;
   // name: string;
   // label?: string;
   // options: { label: string, value: string }[];
 }
 
-const TicketCard: FunctionComponent<TicketCardProps> = ({ imageSrc, genre, title, id }) => {
-  const router = useRouter();
-
-
-  const [counter, setCounter] = useState(0);
-  // const dropdownInput = useRef<HTMLInputElement>(null);
-  // const dropdownMenu = useRef<HTMLDivElement>(null);
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [value, setValue] = useState<{label: string, value: string} | undefined>(undefined);
-  // const checkIfClickedOutside = (e: MouseEvent) => {
-  //   const target = e.target as HTMLElement;
-  //   if (
-  //     isOpen && 
-  //     dropdownMenu.current && 
-  //     !dropdownMenu.current.contains(target) &&
-  //     dropdownInput.current && 
-  //     !dropdownInput.current.contains(target)
-  //   ) {
-  //     setIsOpen(false);
-  //   }
-  // }
-  // document.addEventListener("click", checkIfClickedOutside);
+const TicketCard: FunctionComponent<TicketCardProps> = (
+  { imageSrc, 
+    genre, 
+    title, 
+    id,
+    counter,
+    onAddOne,
+    onRemoveOne,
+    onRemove
+  }) => {
+  //const router = useRouter();
+  //const [counter, setCounter] = useState(0);
   return (
     <article className={classes['ticketcard']}>
       <div className={classes['ticketcard-leftbar']}>
@@ -63,9 +58,8 @@ const TicketCard: FunctionComponent<TicketCardProps> = ({ imageSrc, genre, title
       </div>
       <div className={classes['ticketcard-body']}>
         <Link 
-          href={`${router.asPath}/${encodeURIComponent(id)}`} 
+          href={`movies/${encodeURIComponent(id)}`} 
           className={classes['ticketcard-title']} 
-          //onClick={() => onClick1(id)}
         >
           {title}
         </Link>
@@ -74,84 +68,32 @@ const TicketCard: FunctionComponent<TicketCardProps> = ({ imageSrc, genre, title
         </div>
       </div>
       <div className={classes['ticketcard-rightbar']}>
-        <Button type='primary' disabled={!counter} icon={<MinusOutlined className={classes['ticketcard-button']}/>}/>
+        <Button
+          onClick={() => onRemoveOne()}
+          type='primary'
+          disabled={!counter}
+          icon={<MinusOutlined className={classes['ticketcard-button']}/>}
+        />
         <div>
-          {counter}
+          {counter || 0}
         </div>
-        <Button type='primary' disabled={counter === 30} icon={<PlusOutlined className={classes['ticketcard-button']}/>}/>
+        <Button
+          onClick={() => onAddOne()}
+          type='primary' 
+          disabled={counter === 30} 
+          icon={<PlusOutlined className={classes['ticketcard-button']}/>}
+        />
       </div>
+      {
+        onRemove && <div className={classes['ticketcard-rightbar']}>
+          <Button
+            onClick={() => onRemove()}
+            type='text' 
+            icon={<CloseOutlined className={classes['ticketcard-close']}/>}
+          />
+        </div>
+      }
     </article>
-    // <>
-    //   <div 
-    //     className={classes['input-wrapper']}
-    //     style={{position:'relative'}}
-    //   >
-    //     {<div className={classes['input-label']}>
-    //       {/* <ArrowOutlined className={classes['input-icon']}/> */}
-    //       {label}
-    //     </div>}
-    //     <input
-    //       { ...rest }
-    //       value={value?.label || ''}
-    //       readOnly
-    //       ref={dropdownInput} 
-    //       className={
-    //         classnames(
-    //           classes.input,
-    //           isOpen ? classes["input_opened"] : classes["input_closed"]
-    //         )
-    //       }
-    //       id={ name }
-    //       onClick={() => setIsOpen(!isOpen)}
-    //     />
-        
-    //   </div>
-    //   {
-    //     createPortal(
-    //       <div
-    //         ref={dropdownMenu}
-    //         className={classes["dropdown-menu"]}
-    //         style={ dropdownInput.current ? {
-    //           top: 
-    //             dropdownInput.current.getBoundingClientRect().top + 
-    //             dropdownInput.current.getBoundingClientRect().height,
-    //           left: dropdownInput.current.getBoundingClientRect().left,
-    //           display: isOpen ? 'block' : 'none'
-    //         } : {
-    //           display: isOpen ? 'block' : 'none'
-    //         }
-    //       }
-    //       >
-    //           <>
-    //           <div
-    //             className={classes["dropdown-item"]}
-    //             key={undefined}
-    //             onClick={() => {
-    //               setValue(undefined);
-    //               setIsOpen(false);
-    //               window.scroll(0, 0); 
-    //             } }
-    //           >
-    //             Не выбран
-    //           </div>
-    //           {options.map(
-    //             (option) => 
-    //               <div
-    //                 className={classes["dropdown-item"]}
-    //                 key={option.value}
-    //                 onClick={() => {
-    //                   setValue(option);
-    //                   setIsOpen(false);
-    //                 } }
-    //               >
-    //                 {option.label}
-    //               </div>
-    //           )}
-    //         </>
-    //       </div>, 
-    //     document.body)
-    //   }
-    // </>
   )
 }
 

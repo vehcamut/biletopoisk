@@ -12,10 +12,11 @@ interface DropdownProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label?: string;
   options: IOption[];
+  initValue?: IOption;
   onSelectOption: (option: IOption | undefined)=> void;
 }
 
-const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, onSelectOption, ...rest }) => {
+const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, onSelectOption, initValue, ...rest }) => {
 //   window.addEventListener('scroll',()=> console.log(window.scrollY)
 // )
   const ref = useRef<Element | null>(null)
@@ -42,7 +43,7 @@ const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, onSe
   const dropdownInput = useRef<HTMLInputElement>(null);
   const dropdownMenu = useRef<HTMLDivElement>(null);
   
-  const [value, setValue] = useState<{label: string, value: string} | undefined>(undefined);
+  const [value, setValue] = useState<{label: string, value: string} | undefined>(initValue);
   
   //
   return (

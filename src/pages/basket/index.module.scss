@@ -11,26 +11,38 @@
     width: 408px;
     flex-shrink: 0;
   }
+  &-title {
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 4px;
+  }
 }
 
 .list {
+  flex-grow: 1;
   flex-direction: column;
   display: flex;
   gap: 16px;
 }
 
 .spiner-wrapper {
-  background-color: white;
-  padding: 24px;
-  height: 548px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  &-rev {
-    height: 168px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: white;
+  height: 100%;
+  margin-top: 80px;
+}
+
+.empty {
+  //height: 100%;
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  &-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #333333;;
   }
 }

@@ -32,6 +32,9 @@ $hoverColor: #E94E90;
   &-button {
     background-color: white;
   }
+  &-close {
+    background-color: #333333;
+  }
   &-body {
     
     width: 100%;
@@ -39,7 +42,12 @@ $hoverColor: #E94E90;
     flex-direction: column;
     gap: 8px;
   }
+  &-genre {
+    font-style: italic;
+  }
   &-title {
+    font-weight: 600;
+    line-height: 20px;
     transition: color 0.5s;
     cursor: pointer;
     &:hover {

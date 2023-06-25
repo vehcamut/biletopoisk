@@ -1,3 +1,4 @@
+import { basketReducer } from './reducers/basket.slice';
 import { moviesFilterReducer } from './reducers/moviesFilter.slice';
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query'
@@ -6,6 +7,7 @@ import { api } from './services/api.service';
 export const store = configureStore({
   reducer: {
     moviesFilterReducer,
+    basketReducer,
     [api.reducerPath]: api.reducer,
   },
   middleware: (getDefaultMiddleware) => 
