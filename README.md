@@ -1,8 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Это мое решение домашнего задания ШРИ "Реакт"
 
-## Getting Started
+## Предисловие
 
-First, run the development server:
+ПРИВЕТ!
+
+Если ты здесь, то тебе выпала участь проверять мое решение! Я рад видеть тебя в своем уютненьком репозитории!
+
+<img src="https://img.freepik.com/free-vector/cute-cat-sitting-on-book-stack-cartoon-icon-illustration-animal-education-icon-isolated-flat-cartoon-style_138676-3108.jpg?w=740&t=st=1687765106~exp=1687765706~hmac=f9f763667068cb7c914a95b59aea8750aa4a3d2c8d578111273ede2f6db24cb3">
+
+<a href="https://ru.freepik.com/free-vector/cute-cat-sitting-on-book-stack-cartoon-icon-illustration-animal-education-icon-isolated-flat-cartoon-style_13851657.htm#query=%D0%BA%D0%BE%D1%82%20%D0%B2%20%D0%BE%D1%87%D0%BA%D0%B0%D1%85&position=6&from_view=search&track=ais">Изображение от catalyststuff</a> на Freepik
+
+Я хотел сделать лучше, но увы, что есть, то есть. Начинал я с того, что надо сделать все красиво, а закончил тем, что надо успеть сделать.
+
+## Начинаем
+
+Тут все стандартно. Возьми кот, установи модули и запусти мое творение:
 
 ```bash
 npm run dev
@@ -12,23 +24,8 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Открой [http://localhost:3000](http://localhost:3000) в браузере и наслаждайся зрелищем!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Подытожим
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Если хочешь отправляй мне свои ишуе, мне будет очень приятно (наверное).
