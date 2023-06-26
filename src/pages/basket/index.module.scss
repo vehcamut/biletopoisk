@@ -46,3 +46,26 @@
     background-color: #333333;;
   }
 }
+
+.itogo {
+  position: sticky;
+  border-radius: 8px;
+  background: #FFF;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  &-text {
+    color: var(--text-primary, #1B1F23);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+}
+
+.body {
+  gap: 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}

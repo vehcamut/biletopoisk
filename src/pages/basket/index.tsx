@@ -29,7 +29,7 @@ const Page = () =>  {
   const {setCinemaDropDown, setGenreDropDown, setNameInput} = moviesFilterSlice.actions;
   const {cinemaDropDown, genreDropDown, nameInput} = useAppSelector((state) => state.moviesFilterReducer);
   const { changeBasket, removeFromBasket } = basketSlice.actions;
-  const { items: basket } = useAppSelector((state) => state.basketReducer);
+  const { items: basket, counter } = useAppSelector((state) => state.basketReducer);
   const {
     data: moviesDate,
     isError,
@@ -56,11 +56,7 @@ const Page = () =>  {
             dispatch(removeFromBasket({id: current?.id || ''}));
         }}
       />
-      <div style={{
-        gap: '23px',
-        display: 'flex',
-        flexDirection: 'row',
-      }}>
+      <div className={classes['body']}>
         <div
           className={classes['list']}
         >
@@ -103,7 +99,19 @@ const Page = () =>  {
                 Корзина пуста
             </div>
           }
+          
         </div>
+        {
+            !isFetching && !isError && !!counter &&
+            (<div className={classes["itogo"]}>
+                <div className={classes["itogo-text"]}>
+                  Итого билетов: 
+                </div>
+                <div className={classes["itogo-text"]}>
+                  { counter }
+                </div>
+            </div>)
+          }
       </div>
     </>
 
