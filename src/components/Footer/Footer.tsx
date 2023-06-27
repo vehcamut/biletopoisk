@@ -1,19 +1,15 @@
 "use client"; 
 
-import React, { FunctionComponent, PropsWithChildren, useState } from 'react'
+import React, { FunctionComponent, PropsWithChildren } from 'react'
 import classes from './footer.module.scss';
-import classnames from 'classnames'
-import ArrowOutlined from '../Icons/ArrowOutlined/ArrowOutlined';
-import Button from '../Button/Button';
-import BasketOutlined from '../Icons/BasketOutlined/BasketOutlined';
 import Link from 'next/link';
 
 interface FooterProps extends PropsWithChildren {
   //header: string;
 }
 
-const Footer: FunctionComponent<FooterProps> = ({ children }) => {
-  const [counter, setCounter] = useState(1);
+const Footer: FunctionComponent<FooterProps> = () => {
+  // const [counter, setCounter] = useState(1);
   return (
     <>
       <footer className={classes['footer']}>

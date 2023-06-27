@@ -1,10 +1,9 @@
 'use client';
 
-import React, { FunctionComponent, InputHTMLAttributes, PropsWithChildren, useEffect, useRef, useState } from 'react'
+import React, { FunctionComponent, InputHTMLAttributes, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom';
 import classes from './dropdown.module.scss';
 import classnames from 'classnames'
-import ArrowOutlined from '../Icons/ArrowOutlined/ArrowOutlined';
 import { IOption } from '@/models/IOption';
 // import Input, { InputProps } from '../Input/Input';
 
@@ -13,7 +12,8 @@ interface DropdownProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   options: IOption[];
   initValue?: IOption;
-  onSelectOption: (option: IOption | undefined)=> void;
+  // eslint-disable-next-line no-unused-vars
+  onSelectOption: (option: IOption | undefined) => void;
 }
 
 const Dropdown: FunctionComponent<DropdownProps> = ({ name, label, options, onSelectOption, initValue, ...rest }) => {

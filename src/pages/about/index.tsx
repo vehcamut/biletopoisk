@@ -1,7 +1,4 @@
-import Collapse from "@/components/Collapse/Collapse";
 import classes from './index.module.scss';
-import Modal from "@/components/Modal/Modal";
-import { useState } from "react";
 
 export default function About() {
   return (

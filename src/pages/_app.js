@@ -1,7 +1,6 @@
 import { store } from '../app/store';
 import Layout from '../components/Layout/Layout'
 import '../app/globals.css'
-import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 
 

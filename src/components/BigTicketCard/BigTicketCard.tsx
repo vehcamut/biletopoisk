@@ -1,16 +1,12 @@
 'use client';
 
-import React, { FunctionComponent, InputHTMLAttributes, PropsWithChildren, useEffect, useRef, useState } from 'react'
-import { createPortal } from 'react-dom';
+import React, { FunctionComponent } from 'react'
 import classes from './bigTicketCard.module.scss';
 import classnames from 'classnames'
-import ArrowOutlined from '../Icons/ArrowOutlined/ArrowOutlined';
 import Image from 'next/image'
 import Button from '../Button/Button';
 import PlusOutlined from '../Icons/PlusOutlined/PlusOutlined';
 import MinusOutlined from '../Icons/MinusOutlined/MinusOutlined';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 // import Input, { InputProps } from '../Input/Input';
 
 
@@ -32,7 +28,7 @@ interface BigTicketCardProps {
   onRemove?: () => void;
 }
 
-const BigTicketCard: FunctionComponent<BigTicketCardProps> = ({ movie,counter, onAddOne, onRemoveOne, onRemove }) => {
+const BigTicketCard: FunctionComponent<BigTicketCardProps> = ({ movie,counter, onAddOne, onRemoveOne }) => {
   //const [counter, setCounter] = useState(0);
   return (
     <article className={classes['card']}>

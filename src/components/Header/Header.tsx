@@ -1,10 +1,7 @@
 "use client"; 
 
-import React, { FunctionComponent, PropsWithChildren, useState } from 'react'
+import React, { FunctionComponent, PropsWithChildren } from 'react'
 import classes from './header.module.scss';
-import classnames from 'classnames'
-import ArrowOutlined from '../Icons/ArrowOutlined/ArrowOutlined';
-import Button from '../Button/Button';
 import BasketOutlined from '../Icons/BasketOutlined/BasketOutlined';
 import Link from 'next/link';
 import { useAppSelector } from '@/app/hooks';
@@ -13,7 +10,7 @@ interface HeaderProps extends PropsWithChildren {
   //header: string;
 }
 
-const Header: FunctionComponent<HeaderProps> = ({ children }) => {
+const Header: FunctionComponent<HeaderProps> = () => {
   const basket = useAppSelector((state) => state.basketReducer);
 
   return (

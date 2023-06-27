@@ -1,6 +1,5 @@
-import React, { FunctionComponent, InputHTMLAttributes, PropsWithChildren } from 'react'
+import React, { FunctionComponent, InputHTMLAttributes } from 'react'
 import classes from './input.module.scss';
-import classnames from 'classnames'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;

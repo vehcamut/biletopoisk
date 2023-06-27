@@ -1,6 +1,5 @@
-import React, { FunctionComponent, PropsWithChildren } from 'react'
+import React, { FunctionComponent } from 'react'
 import classes from './arrowOutlined.module.scss';
-import classnames from 'classnames'
 import Icon from '../Icon/Icon';
 
 interface ArrowOutlinedProps {

@@ -1,33 +1,18 @@
-import Header from "@/components/Header/Header";
-import Input from "@/components/Input/Input";
-import Layout from "@/components/Layout/Layout";
-import { FunctionComponent, PropsWithChildren, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import classes from './index.module.scss';
-import Dropdown from "@/components/Dropdown/Dropdown";
 import TicketCard from "@/components/TicketCard/TicketCard";
-import { useRouter } from "next/router";
 import { moviesAPI } from "@/app/services/movies.service";
 import Spiner from "@/components/Spiner/Spiner";
-import { moviesFilterSlice } from "@/app/reducers/moviesFilter.slice";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
-import { debounce } from "lodash";
-import { cinemasAPI } from "@/app/services/cinemas.service";
-import FindOutlined from "@/components/Icons/FindOutlined/FindOutlined";
 import { basketSlice } from "@/app/reducers/basket.slice";
 import Modal from "@/components/Modal/Modal";
-import EmptyOutlined from "@/components/Icons/EmptyOutlined/EmptyOutlined";
 import BasketOutlined from "@/components/Icons/BasketOutlined/BasketOutlined";
 
 const Page = () =>  {
   const [current, setCurrent] = useState<{id: string, amount?: number}>();
-  const onLol = debounce((e) =>
-    {
-      dispatch(setNameInput(e.target.value.toLocaleLowerCase()))
-    }, 500);
   const dispatch = useAppDispatch();
   const [isVisible, setIsVisible] = useState(false);
-  const {setCinemaDropDown, setGenreDropDown, setNameInput} = moviesFilterSlice.actions;
-  const {cinemaDropDown, genreDropDown, nameInput} = useAppSelector((state) => state.moviesFilterReducer);
+  const {cinemaDropDown,} = useAppSelector((state) => state.moviesFilterReducer);
   const { changeBasket, removeFromBasket } = basketSlice.actions;
   const { items: basket, counter } = useAppSelector((state) => state.basketReducer);
   const {
@@ -71,6 +56,7 @@ const Page = () =>  {
             !isFetching && !isError && movies &&
             movies.map((movie) => 
             (<TicketCard
+                key={movie.id}
                 id={movie.id}
                 genre={movie.genre}
                 imageSrc={movie.posterUrl}

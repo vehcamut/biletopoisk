@@ -1,10 +1,9 @@
 'use client';
 
-import React, { FunctionComponent, InputHTMLAttributes, PropsWithChildren, useEffect, useRef, useState } from 'react'
+import React, { FunctionComponent, PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom';
 import classes from './modal.module.scss';
 import classnames from 'classnames'
-import ArrowOutlined from '../Icons/ArrowOutlined/ArrowOutlined';
 import Button from '../Button/Button';
 import CloseOutlined from '../Icons/CloseOutlined/CloseOutlined';
 // import Input, { InputProps } from '../Input/Input';
@@ -48,9 +47,6 @@ const Modal: FunctionComponent<ModalProps> = ({ text, title, isOpen, onClose, on
     //document.body.style.overflowY = isOpen ? 'scroll' : '';
   })
   const plugRef = useRef<HTMLInputElement>(null);
-  const dropdownMenu = useRef<HTMLDivElement>(null);
-  //const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState<{label: string, value: string} | undefined>(undefined);
   
   //
   return (mounted && ref.current) ? 
